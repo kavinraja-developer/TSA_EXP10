@@ -70,11 +70,11 @@ plt.show()
 
 ```
 ### OUTPUT:
-![output](./output/o1.png)
-![output](./output/o2.png)
-![output](./output/o3.png)
-![output](./output/o4.png)
-![output](./output/o5.png)
+![output](./o1.png)
+![output](./o2.png)
+![output](./o3.png)
+![output](./o4.png)
+![output](./o5.png)
 ### RESULT:
 Thus the program run successfully based on the SARIMA model.
 
