@@ -18,6 +18,8 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.tsa.stattools import adfuller
+```
+```py
 
 df = pd.read_csv("temperature.csv")
 
@@ -25,13 +27,16 @@ df['Date'] = pd.to_datetime(df[['month', 'day', 'year']])
 df.set_index('Date', inplace=True)
 df.dropna(subset=['AverageTemperatureFahr'], inplace=True)
 ts = df['AverageTemperatureFahr']
+```
+```py
 
 ts.plot(figsize=(12, 6))
 plt.title('Average Temperature Over Time')
 plt.xlabel('Date')
 plt.ylabel('Temperature (Fahrenheit)')
 plt.show()
-
+```
+```py
 def test_stationarity(timeseries):
     print('Results of Dickey-Fuller Test:')
     dftest = adfuller(timeseries, autolag='AIC')
@@ -41,6 +46,8 @@ def test_stationarity(timeseries):
     print(dfoutput)
 
 test_stationarity(ts)
+```
+```py
 
 plot_acf(ts, lags=20)
 plt.title('ACF')
@@ -54,6 +61,8 @@ order = (1, 1, 1)
 seasonal_order = (1, 1, 1, 12) 
 model = SARIMAX(ts, order=order, seasonal_order=seasonal_order)
 results = model.fit()
+```
+```py
 
 pred_start = len(ts)
 pred_end = pred_start + 24  # 2 years ahead
